@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Safeblink</title>
+    <meta name="keywords" content="HTML,CSS,JavaScript" />
+    <meta name="description" content="Safeblink, safe-web" />
+    <meta name="author" content="Martina-Milosheva" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!---- Favicon ---->
+    <link rel="icon" href="./images/logo.png" type="image/x-icon" />
+
+    <!---- Latest compiled and minified BOOTSTRAP CSS ---->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+
+    <!---- Local CSS ---->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+    <!--- Font Awesome 6 cdn --->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!----- NAVBAR ---->
+    <nav class="navbar navbar-expand-md px-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#safeblink">
+          <img src="./images/logo.png" style="height: 50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto fw-bold">
+            <li><a href="#information" class="nav-link">Информирај се</a></li>
+            <li><a href="#discussion" class="nav-link">Дискусии</a></li>
+            <li><a href="#contact" class="nav-link">Контакт</a></li>
+            <li>
+              <a id="profile-link" href="#profile" class="nav-link">Профил</a>
+            </li>
+          </ul>
+
+          <div
+            class="d-flex align-items-center justify-content-end gap-3 mt-3 mt-md-0 flex-wrap"
+          >
+            <button
+              id="login-button"
+              class="btn d-flex align-items-center justify-content-center gap-2"
+            >
+              <i class="fa-solid fa-user me-1 nav-link" id="user-icon"></i>
+              <a id="login-link" href="#login" class="nav-link p-0"
+                >Најави се</a
+              >
+            </button>
+            <button id="logout-button" class="btn">Одјави се</button>
+
+            <div
+              class="nav-extras d-none d-md-flex align-items-center gap-2 fw-bold"
+            >
+              <p class="m-0 nav-link">MK</p>
+              <p class="m-0 nav-link">|</p>
+              <p class="m-0 nav-link">AL</p>
+              <i class="fa-solid fa-magnifying-glass ms-3 nav-link"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--- HOME PAGE SAFEBLINK--->
+    <section id="safeblink">
+      <div
+        class="banner d-flex flex-column align-items-center justify-content-center text-center"
+        data-bs-toggle="modal"
+        data-bs-target="#videoModal"
+        style="cursor: pointer"
+      >
+        <div class="col-12">
+          <img
+            src="./images/landing.png"
+            alt="Banner"
+            class="banner-image img-fluid"
+          />
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="videoModal"
+          tabindex="-1"
+          aria-labelledby="videoModalLabel"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="videoModalLabel">
+                  Гледај Видео
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/6owNUyDlHVg?si=Q1PY7JM_xrgBd6Yb"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--- cards section --->
+      <div class="container my-5">
+        <h1 class="text-center text-white my-4 fw-bold heading">
+          Информирај се и заштити се
+        </h1>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card card-1 h-100">
+              <div
+                class="d-flex align-items-center justify-content-between p-3"
+              >
+                <h5 class="card-title">Научи се што треба да знаеш</h5>
+                <img
+                  src="./images/first-card-icon.png"
+                  class="me-3 rounded"
+                  alt="Card 1 Image"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <p class="card-text">
+                  Lorem Ipsum не е случајно избран и сложен текст, спротивно од
+                  верувањата. Неговите корени потекнуваат во дела на класичната
+                  Латинска книжевност од 45-та година пред новата ера, што го
+                  прави стар преку 2000 години. Richard McClintock, професор по
+                  Латински на колеџот Hampden-Sydney во Вирџинија.
+                </p>
+                <a href="#" class="btn btn-1 mt-3">Дознај повеќе</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card card-2 h-100">
+              <div
+                class="d-flex align-items-center justify-content-between p-3"
+              >
+                <h5 class="card-title">Вклучи се во дискусија</h5>
+                <img
+                  src="./images/second-card-icon.png"
+                  class="me-3 rounded"
+                  alt="Card 2 Image"
+                />
+              </div>
+              <div class="card-body d-flex flex-column justify-content-between">
+                <p class="card-text">
+                  Постојат многу варијации на пасуси од Lorem Ipsum, меѓутоа
+                  повеќето претрпеле одредени промени, некои со додавање на
+                  одредена доза на хумор, додека некои со случано подредување на
+                  зборовите коишто воопшто не звучат веројатно.
+                </p>
+                <a href="#" class="btn btn-2 mt-3">Дознај повеќе</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card card-3 h-100">
+              <div
+                class="d-flex align-items-center justify-content-between p-3"
+              >
+                <h5 class="card-title">Следи го својот напредок</h5>
+                <img
+                  src="./images/third-card-icon.png"
+                  class="me-3 rounded"
+                  alt="Card 3 Image"
+                />
+              </div>
+              <div class="card-body d-flex flex-column justify-content-between">
+                <p class="card-text">
+                  Доколку планирате да ги користите пасусите на моделот на Lorem
+                  Ipsum , треба да се осигурате дека во содржината на текстот не
+                  се крие некоја скриена непријатна порака. Сите генератори на
+                  Lorem Ipsum кои се наоѓаат на Интернет се направени да
+                  повторуваат претходно дефинирани зборови
+                </p>
+                <a href="#" class="btn btn-3 mt-3">Дознај повеќе</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--- INFORMATION PAGE--->
+    <section id="information" class="py-5 hidden">
+      <div class="container p-0">
+        <h2 class="text-left text-white py-4 fw-bold heading">
+          Сè што треба да знаеш
+        </h2>
+        <!-- carousel -->
+        <div class="carousel-container">
+          <div class="carousel-inner">
+            <span id="arrow-left"><i class="fas fa-arrow-left"></i></span>
+            <div class="carousel-wrapper mb-4 gap-5">
+              <button class="btn-custom mx-2 active" id="btn1">Видеа</button>
+              <button class="btn-custom mx-2 inactive" id="btn2">Статии</button>
+              <button class="btn-custom mx-2 inactive" id="btn3">
+                Упатства
+              </button>
+            </div>
+            <span id="arrow-right"><i class="fas fa-arrow-right"></i></span>
+          </div>
+
+          <div class="carousel-pagination">
+            <span class="circle"><i class="fas fa-circle"></i></span>
+            <span class="circle"><i class="fas fa-circle"></i></span>
+            <span class="circle"><i class="fas fa-circle"></i></span>
+          </div>
+        </div>
+        <!--- filter buttons  --->
+        <div
+          class="button-filters d-flex flex-wrap justify-content-center mb-4"
+          id="filters"
+        >
+          <button
+            id="most-watched-filter"
+            class="btn filter-btn inactive-filter active"
+            data-category="most-watched"
+          >
+            Најгледани
+          </button>
+          <button
+            id="actual-category-filter"
+            class="btn filter-btn inactive-filter active"
+            data-category="actual"
+          >
+            Aктуелно
+          </button>
+          <button
+            id="lorem-filter"
+            class="btn filter-btn inactive-filter active"
+            data-category="lorem"
+          >
+            Лорем
+          </button>
+          <button
+            id="internet-videos-filter"
+            class="btn filter-btn inactive-filter active"
+            data-category="internet-videos"
+          >
+            Интернет видеа
+          </button>
+          <button
+            id="privacy-filter"
+            class="btn filter-btn inactive-filter active"
+            data-category="privacy"
+          >
+            Приватност
+          </button>
+        </div>
+        <!--- cards-container loaded dynamically --->
+        <div class="row" id="cards-container"></div>
+      </div>
+      <div id="cardModal" class="modal fade">
+        <div class="modal-dialog-centered modal-dialog modal-lg">
+          <div class="modal-content modal-content-info">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitle"></h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-6 pe-3">
+                  <p id="modalDescription" class="mb-3"></p>
+                  <div
+                    class="comment mb-4 p-3 border-rounded"
+                    id="submit-comment"
+                  >
+                    <textarea
+                      id="modalComment"
+                      class="form-control mb-2"
+                      placeholder="Остави коментар..."
+                    ></textarea>
+                    <hr />
+                    <div id="user-info" class="d-flex align-items-center mb-2">
+                      <img
+                        id="user-image"
+                        src=""
+                        class="rounded-circle me-2"
+                        width="30"
+                        height="30"
+                      />
+                      <div>
+                        <small><strong id="user-name">Guest</strong></small>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    id="comments-scroll-wrapper"
+                    style="overflow-y: auto"
+                    class="mb-3"
+                  >
+                    <div id="comments-list">
+                      <div class="comment mb-3 p-3 border-rounded">
+                        <p>
+                          Се популаризирал во 60-тите години на дваесеттиот век
+                          со издавањето на збирка од страни во кои се наоѓале
+                          Lorem Ipsum пасуси
+                        </p>
+                        <div
+                          class="d-flex justify-content-between align-items-center mt-2"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <img
+                              src="./images/user2.png"
+                              class="rounded-circle me-2 text-center"
+                              width="30"
+                              height="30"
+                            />
+                            <div>
+                              <small><strong>Jane Doe</strong></small>
+                            </div>
+                          </div>
+                          <small class="text-muted">08/05/2025 14:23</small>
+                        </div>
+                      </div>
+                      <div class="comment mb-3 p-3 border-rounded">
+                        <p>
+                          И не само што овој модел опстанал пет векови туку
+                          почнал да се користи и во електронските медиуми, кој
+                          се уште не е променет
+                        </p>
+                        <div
+                          class="d-flex justify-content-between align-items-center mt-2"
+                        >
+                          <div class="d-flex align-items-center">
+                            <img
+                              src="./images/user3.png"
+                              class="rounded-circle me-2"
+                              width="30"
+                              height="30"
+                            />
+                            <div>
+                              <small><strong>John Smith</strong></small>
+                            </div>
+                          </div>
+                          <small class="text-muted">06/02/2025 18:45</small>
+                        </div>
+                      </div>
+                      <div class="comment mb-3 p-3 border-rounded">
+                        <p>
+                          Lorem ipsum бил индустриски стандард кој се користел
+                          како модел уште пред 1500 години, кога непознат
+                          печатар зел кутија со букви и ги сложил на таков.
+                        </p>
+                        <div
+                          class="d-flex justify-content-between align-items-center mt-2"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <img
+                              src="./images/user4.png"
+                              class="rounded-circle me-2"
+                              width="30"
+                              height="30"
+                            />
+                            <div>
+                              <small><strong>Jane Doe</strong></small>
+                            </div>
+                          </div>
+                          <small class="text-muted">03/03/2025 14:23</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 position-relative">
+                  <div class="modal-media-container position-relative">
+                    <!-- Image block -->
+                    <img
+                      id="modalImage"
+                      src=""
+                      alt="Card Image"
+                      class="img-fluid rounded shadow w-100"
+                      style="cursor: pointer"
+                    />
+                    <div class="play-button-overlay">
+                      <i class="fas fa-play" id="play-video-btn"></i>
+                    </div>
+
+                    <!-- Video block -->
+                    <div
+                      id="modalVideoWrapper"
+                      class="d-none position-absolute top-0 start-0 w-100 h-100"
+                    >
+                      <div class="ratio ratio-16x9 h-100">
+                        <iframe
+                          id="modal-video"
+                          class="w-100 h-100"
+                          src=""
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---- DISCUSSION PAGE ---->
+    <section id="discussion">
+      <div class="container py-4">
+        <h2 class="text-left text-white py-4 fw-bold">Taбла за дискусии</h2>
+
+        <div class="cards-container">
+          <div id="shareExperienceCard" class="mb-3">
+            <form id="new-discussion-form">
+              <div class="input-box d-flex w-100">
+                <input
+                  type="text"
+                  name="discussion-content"
+                  id="discussion-content"
+                  placeholder="Сподели искуство..."
+                  required
+                />
+                <button type="submit" id="send-discussion-btn">Испрати</button>
+              </div>
+              <div class="info-box-discussion">
+                <img alt="discussion-img" />
+                <p class="shareExperienceNameSurname"></p>
+              </div>
+            </form>
+          </div>
+
+          <!-- cards loaded dynamically -->
+          <div id="discussions-container" class="discussion-grid"></div>
+        </div>
+      </div>
+      <!-- see more button overlay -->
+      <div class="gradient-overlay">
+        <div class="d-flex justify-content-center align-items-center">
+          <button
+            class="see-more"
+            id="see-more"
+            class="btn border-0 text-white"
+          >
+            <i class="fas fa-plus me-3"></i> Види повеќе
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!---- CONTACT PAGE ---->
+    <section id="contact" class="py-5">
+      <div class="container p-0">
+        <h2 class="text-left text-white mb-5 fw-bold">Koнтакт</h2>
+        <h3 class="text-left mb-3">Пoбарај стручна помош</h3>
+        <div
+          class="link-card d-flex justify-content-between align-items-center mb-5"
+        >
+          <div class="d-flex flex-column w-75 gap-3">
+            <h4>Aгенција за заштита на личните податоци</h4>
+            <p>
+              Многу софтверски пакети за печатење како и веб уредувачи го
+              користат како основен модел на текст токму моделот на "Lorem
+              ipsum", и доколку се изврши пребарување на интернет со "lorem
+              ipsum" како како клучни зборови резултатот ќе врати многу веб
+              сајтови кои се на некој начин во финална изработка
+            </p>
+          </div>
+          <a
+            href="https://www.emsa.europa.eu/about/personal-data-protection.html"
+            class="link text-center fw-bold"
+            >Линк</a
+          >
+        </div>
+        <h3 class="text-left mb-3">Невладини организиции</h3>
+        <div class="links-container gap-4 d-flex flex-column">
+          <div
+            class="link-card d-flex justify-content-between align-items-center"
+          >
+            <div class="d-flex flex-column w-75 gap-3">
+              <h4>NGO 1</h4>
+              <p>
+                Постојат многу варијации на пасуси од Lorem Ipsum, меѓутоа
+                повеќето претрпеле одредени промени, некои со додавање на
+                одредена доза на хумор, додека некои со случано подредување на
+                зборовите коишто воопшто не звучат веројатно.
+              </p>
+            </div>
+            <a
+              href="https://www.emsa.europa.eu/about/personal-data-protection.html"
+              class="link text-center fw-bold"
+              >Линк</a
+            >
+          </div>
+          <div
+            class="link-card d-flex justify-content-between align-items-center"
+          >
+            <div class="d-flex flex-column w-75 gap-3">
+              <h4>NGO 2</h4>
+              <p>
+                Сите генератори на Lorem Ipsum кои се наоѓаат на Интернет се
+                направени да повторуваат претходно дефинирани зборови. Тоа го
+                овој гeнератор на Lorem Ipsum пасуси прв вистински генератор
+                достапен на Интернет. Користи речник од околу 200 латински
+                зборови кои се комбинирани со многу различни шаблони на реченици
+                со цел да се исгенерира Lorem Ipsum текст кој изгледа соодветно
+              </p>
+            </div>
+            <a
+              href="https://www.emsa.europa.eu/about/personal-data-protection.html"
+              class="link text-center fw-bold"
+              >Линк</a
+            >
+          </div>
+          <div
+            class="link-card d-flex justify-content-between align-items-center"
+          >
+            <div class="d-flex flex-column w-75 gap-3">
+              <h4>NGO 3</h4>
+              <p>
+                Стандардниот дел на Lorem Ipsum кој се користел уште од 1500-та
+                година е репродуциран според одредени потреби. Поглавјето
+                1.10.32 и 1.10.33 од книгата "de Finibus Bonorum et Malorum"
+                која ја напишал Cicerо се исто така преработени во оригиналната
+                форма заедно со англиската верзија на H. Rackham од 1914 година.
+              </p>
+            </div>
+            <a
+              href="https://www.emsa.europa.eu/about/personal-data-protection.html"
+              class="link text-center fw-bold"
+              >Линк</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---- PROFILE PAGE ---->
+    <section id="profile">
+      <div class="container p-0">
+        <h2 class="text-left text-white py-4 fw-bold">Профил</h2>
+
+        <div
+          class="user-info-container d-flex mb-4 justify-content-between align-items-center gap-md-3"
+        >
+          <div class="image-container d-flex col-12 col-md-4">
+            <div class="image-box position-relative">
+              <img alt="user-img" id="user-page-img" />
+            </div>
+          </div>
+          <div class="info-container col-12 col-md-8 px-2">
+            <form id="login-form-profile" class="row g-3">
+              <div
+                class="info-box col-12 col-md-6 input-wrapper text-white fw-bold"
+              >
+                <label for="user-username" class="mb-2"
+                  >Име и презиме / Корисничко име</label
+                >
+                <div class="input-box">
+                  <input
+                    type="text"
+                    name="username"
+                    id="user-username"
+                    placeholder="Име и презиме"
+                    class="editable-field"
+                    required
+                    readonly
+                  />
+                  <div class="action-buttons">
+                    <button
+                      id="save-username-btn"
+                      type="button"
+                      class="edit-btn"
+                    >
+                      Промени
+                    </button>
+                    <div class="icons-container hidden">
+                      <span class="check-icon"
+                        ><i class="fas fa-check"></i
+                      ></span>
+                      <span class="x-icon"><i class="fas fa-times"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="info-box col-12 col-md-6 input-wrapper text-white fw-bold"
+              >
+                <label for="user-birth-year" class="mb-2"
+                  >Година на раѓање</label
+                >
+                <div class="input-box">
+                  <input
+                    id="user-birth-year"
+                    name="user-birth-year"
+                    type="number"
+                    min="1900"
+                    max="2025"
+                    class="editable-field"
+                    required
+                    readonly
+                  />
+                  <div class="action-buttons">
+                    <button
+                      id="save-birth-year-btn"
+                      type="button"
+                      class="edit-btn"
+                    >
+                      Промени
+                    </button>
+                    <div class="icons-container hidden">
+                      <span class="check-icon"
+                        ><i class="fas fa-check"></i
+                      ></span>
+                      <span class="x-icon"><i class="fas fa-times"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="info-box col-12 col-md-6 input-wrapper text-white fw-bold"
+              >
+                <label for="user-email" class="mb-2">Email адреса</label>
+                <div class="input-box">
+                  <input
+                    id="user-email"
+                    name="user-email"
+                    type="email"
+                    class="editable-field"
+                    required
+                    readonly
+                  />
+                  <div class="action-buttons">
+                    <button id="save-email-btn" type="button" class="edit-btn">
+                      Промени
+                    </button>
+                    <div class="icons-container hidden">
+                      <span class="check-icon"
+                        ><i class="fas fa-check"></i
+                      ></span>
+                      <span class="x-icon"><i class="fas fa-times"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="info-box col-12 col-md-6 input-wrapper text-white fw-bold"
+              >
+                <label for="user-gender" class="mb-2">Пол</label>
+                <div class="input-box">
+                  <input
+                    id="user-gender"
+                    name="gender"
+                    type="text"
+                    class="editable-field"
+                  />
+                  <div class="action-buttons">
+                    <button id="save-gender-btn" type="button" class="edit-btn">
+                      Промени
+                    </button>
+                    <div class="icons-container hidden">
+                      <span class="check-icon"
+                        ><i class="fas fa-check"></i
+                      ></span>
+                      <span class="x-icon"><i class="fas fa-times"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="info-box col-12 col-md-6 input-wrapper text-white fw-bold"
+              >
+                <label for="user-password" class="mb-2">Лозинка</label>
+                <div class="input-box">
+                  <input
+                    id="user-password"
+                    value="password"
+                    name="password"
+                    type="password"
+                    class="editable-field"
+                    required
+                    readonly
+                  />
+                  <div class="action-buttons">
+                    <button
+                      id="save-password-btn"
+                      type="button"
+                      class="edit-btn"
+                    >
+                      Промени
+                    </button>
+                    <div class="icons-container hidden">
+                      <span class="check-icon"
+                        ><i class="fas fa-check"></i
+                      ></span>
+                      <span class="x-icon"><i class="fas fa-times"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!--- progress bar container --->
+        <div class="progress-container my-4">
+          <div
+            class="title-container d-flex justify-content-between text-white fs-5 fw-bold mb-4"
+          >
+            <p>Следи го својот Safeblink напредок!</p>
+            <p>Моментално ниво: Лорем ипсум</p>
+          </div>
+          <div class="progress-bar-outer">
+            <div class="progress-bar-inner"></div>
+          </div>
+        </div>
+
+        <!--- cards-container --->
+        <div
+          class="cards-container d-flex gap-1 justify-content-between align-items-stretch flex-wrap mb-4 mt-4"
+        >
+          <div
+            class="user-card d-flex flex-column justify-content-center align-items-center"
+          >
+            <img src="./images/fist.png" />
+            <p>Се придружи!</p>
+          </div>
+          <div class="user-card">
+            <img src="./images/security cam.png" />
+            <p>Изгледани 10 видеа</p>
+          </div>
+          <div class="user-card">
+            <img src="./images/eye.png" />
+            <p>Изгледани 20 видеа</p>
+          </div>
+          <div class="user-card">
+            <img src="./images/shield.png" />
+            <p>Изгледани 50 видеа</p>
+          </div>
+          <div class="user-card">
+            <img src="./images/sword.png" />
+            <p>Активност во дискусија</p>
+          </div>
+          <div class="user-card">
+            <img src="./images/trophy.png" />
+            <p>Прочитани 20 статии</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!---- LOGIN PAGE ---->
+    <section id="login" class="py-5">
+      <div class="container p-0">
+        <div class="row align-items-center">
+          <h2 class="text-left text-white py-4 fw-bold heading">
+            Придружи ни се
+          </h2>
+          <div class="col-md-6 mb-4">
+            <div class="mb-3">
+              <a
+                href="#"
+                class="btn btn-outline-purple text-start bg-white w-75 mb-2"
+              >
+                <i class="fab fa-google me-2"></i> Продолжи со Google
+              </a>
+              <a
+                href="#"
+                class="btn btn-outline-purple text-start bg-white w-75 mb-2"
+              >
+                <i class="fab fa-apple me-2"></i> Продолжи со Apple
+              </a>
+              <a
+                href="#"
+                class="btn btn-outline-purple text-start bg-white w-75 mb-2"
+              >
+                <i class="fab fa-tiktok me-2"></i> Продолжи со TikTok
+              </a>
+            </div>
+            <div class="d-flex align-items-center mb-3 w-75">
+              <hr class="flex-grow-1" />
+              <span class="mx-2 text-white fw-bold">или</span>
+              <hr class="flex-grow-1" />
+            </div>
+            <form id="login-form">
+              <div class="d-flex flex-column w-75 mb-3">
+                <label for="username" class="form-label text-white fw-bold"
+                  >Корисничко име *</label
+                >
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  class="form-control"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Ве молиме внесете корисничко име.
+                </div>
+              </div>
+              <div class="d-flex flex-column w-75">
+                <label for="password" class="form-label text-white fw-bold"
+                  >Лозинка *</label
+                >
+                <div class="input-group">
+                  <input
+                    type="password"
+                    name="passowrd"
+                    id="password"
+                    placeholder="Password"
+                    class="form-control"
+                    required
+                  />
+                  <span class="input-group-text">
+                    <i
+                      class="fa fa-eye-slash"
+                      id="togglePassword"
+                      style="cursor: pointer"
+                    ></i>
+                  </span>
+                </div>
+                <div class="invalid-feedback">Ве молиме внесете лозинка.</div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rememberMe"
+                    />
+                    <label class="form-check-label text-white" for="rememberMe">
+                      Запомни ме
+                    </label>
+                  </div>
+                  <p class="mb-0">
+                    <a href="#" class="text-decoration-none text-white"
+                      >Ја заборави лозинката?</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center w-75">
+                <button type="submit" class="btn w-50 mt-5 login-btn fw-bold">
+                  Најави се
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center">
+            <img
+              src="./images/login.png"
+              alt="Login Image"
+              class="img-fluid"
+              style="max-height: 400px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      class="modal fade"
+      id="welcomeModal"
+      tabindex="-1"
+      aria-labelledby="welcomeModalLabel"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-login text-center">
+          <div class="modal-header border-0">
+            <h5
+              class="modal-title text-white fw-bold text-center w-100 fs-2"
+              id="welcomeModalLabel"
+            >
+              Добредојде!
+            </h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-white">Успешно креиран профил</p>
+            <button id="go-to-profile" class="btn mt-5">
+              Продолжи кон Safeblink
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---- FOOTER ---->
+    <footer class="footer text-white py-5">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-stretch">
+          <!---Left column --->
+          <div class="col-12 col-md-4 mb-4 mb-md-0 d-flex px-2">
+            <div class="d-flex flex-column justify-content-between">
+              <img
+                src="./images/white logo.png"
+                alt="Logo"
+                style="width: 70px"
+                class="mb-2"
+              />
+              <p>International Foundation for Electoral Systems (IFES)</p>
+              <div class="d-flex flex-wrap align-items-center">
+                <span class="me-3"
+                  ><i class="fa fa-phone me-2"></i> +389-2-312-2288</span
+                >
+                <span
+                  ><i class="fa fa-envelope me-2"></i> ifes.nmk@ifes.org</span
+                >
+              </div>
+            </div>
+          </div>
+          <!---Middle column --->
+          <div
+            class="col-12 col-md-4 mb-4 mb-md-0 d-flex px-2 justify-content-md-center"
+          >
+            <div
+              class="d-flex flex-column justify-content-between align-items-start h-100"
+            >
+              <div>
+                <p class="mb-3">
+                  <a href="#information" class="text-white text-decoration-none"
+                    >Информирај се</a
+                  >
+                </p>
+                <p class="mb-3">
+                  <a href="#discussion" class="text-white text-decoration-none"
+                    >Дискусии</a
+                  >
+                </p>
+                <p class="mb-3">
+                  <a href="#contact" class="text-white text-decoration-none"
+                    >Контакт</a
+                  >
+                </p>
+                <p>
+                  <a href="#login" class="text-white text-decoration-none"
+                    >Најави се</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!---Right column --->
+          <div class="col-12 col-md-4 d-flex px-2">
+            <div class="d-flex flex-column justify-content-between text-md-end">
+              <div class="mb-2">
+                <span class="me-2">MK</span> | <span class="ms-2">AL</span>
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-center justify-content-md-end mb-2 gap-5 gap-md-3"
+              >
+                <a href="#" class="text-white"
+                  ><i class="fab fa-facebook fa-lg"></i
+                ></a>
+                <a href="#" class="text-white"
+                  ><i class="fab fa-instagram fa-lg"></i
+                ></a>
+                <a href="#" class="text-white"
+                  ><i class="fab fa-youtube fa-lg"></i
+                ></a>
+                <a href="#" class="text-white"
+                  ><i class="fab fa-tiktok fa-lg"></i
+                ></a>
+              </div>
+
+              <p class="mb-0 text-center text-md-end">
+                &copy; All rights reserved. <span> | </span> safeblink.mk
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- 404 PAGE -->
+    <section id="not-found" class="d-none text-center p-5">
+      <lottie-player
+        src="https://assets2.lottiefiles.com/packages/lf20_qwq1zsvj.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px; margin: 0 auto"
+        loop
+        autoplay
+      ></lottie-player>
+      <h2>404 - Страницата не постои</h2>
+      <p>Не можевме да ја најдеме страната што ја бараш.</p>
+      <a href="#safeblink" class="btn btn-primary mt-3">Назад на почетна</a>
+    </section>
+
+    <!--Latest jqery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Bootstrap popper.js for the modal iframe-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lottie script --->
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script src="./index.js" type="module"></script>
+    <script src="./sessionHelper.js" type="module"></script>
+    <script src="../learn-page/cardsData.js" type="module"></script>
+    <script src="../learn-page/index.js" type="module"></script>
+    <script src="../discussions-page/index.js" type="module"></script>
+    <script src="../discussions-page/discussionsData.js" type="module"></script>
+    <script src="../profile-page/index.js" type="module"></script>
+  </body>
+</html>
