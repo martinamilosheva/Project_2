@@ -15,6 +15,7 @@ const SUPPORTED_ROUTES_MAP = {
   discussion: "discussion",
   contact: "contact",
   login: "login",
+  notFound: "not-found",
 };
 
 const isRouteSupported = (route) => {
@@ -33,26 +34,37 @@ const hideAllSections = () => {
 
 const handleHashRouteChange = () => {
   const hashRoute = getHashRoute();
+  const allSections = document.querySelectorAll("section");
 
-  if (hashRoute && isRouteSupported(hashRoute)) {
-    document.getElementById(hashRoute).style.display = "block";
+  allSections.forEach((section) => {
+    section.style.display = "none";
+  });
 
-    switch (hashRoute) {
-      case SUPPORTED_ROUTES_MAP.information:
-        renderCards();
-        break;
-      case SUPPORTED_ROUTES_MAP.profile:
-        populateUserDetailFieldsAndSetBehavior();
-        break;
-      case SUPPORTED_ROUTES_MAP.discussion:
-        renderDiscussionsAndDefineBehavior();
-        break;
-      default:
-        console.warn("Not covered page");
-    }
-  } else {
-    document.getElementById("safeblink").style.display = "block";
+  const matchedRoute = isRouteSupported(hashRoute) ? hashRoute : "not-found"; // fallback to 404
+
+  const activeSection = document.getElementById(`${matchedRoute}`);
+  if (activeSection) {
+    activeSection.style.display = "block";
+    activeSection.classList.add("fade-in");
   }
+
+  switch (matchedRoute) {
+    case SUPPORTED_ROUTES_MAP.information:
+      renderCards();
+      break;
+    case SUPPORTED_ROUTES_MAP.profile:
+      populateUserDetailFieldsAndSetBehavior();
+      break;
+    case SUPPORTED_ROUTES_MAP.discussion:
+      renderDiscussionsAndDefineBehavior();
+      break;
+    case "not-found":
+      console.warn("404: Route not found.");
+      break;
+    default:
+     break;
+  }
+  window.scrollTo(0, 0);
 };
 
 const updateUserIcon = () => {
@@ -71,7 +83,15 @@ const updateUserIcon = () => {
     userIcon.style.backgroundImage = `url(${userData.image})`;
     loginButton.style.border = "none";
   }
+  if (userIcon) {
+    userIcon.addEventListener("click", () => {
+      location.hash = `#${SUPPORTED_ROUTES_MAP.profile}`;
+    });
+  }
 };
+
+
+
 
 const resetUserIcon = () => {
   const userIcon = document.getElementById("user-icon");
@@ -174,4 +194,17 @@ window.addEventListener("load", () => {
     handleAuthenticatedUserContent();
     location.hash = `#${SUPPORTED_ROUTES_MAP.safeblink}`;
   });
+});
+
+//banner video
+const bannerImage = document.getElementById("banner-image-container");
+const videoContainer = document.getElementById("video-container");
+
+function showVideo() {
+  bannerImage.classList.add("d-none");
+  videoContainer.classList.remove("d-none");
+}
+
+bannerImage.addEventListener("click", () => {
+  showVideo();
 });

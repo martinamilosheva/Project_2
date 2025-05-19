@@ -87,56 +87,25 @@
     <section id="safeblink">
       <div
         class="banner d-flex flex-column align-items-center justify-content-center text-center"
-        data-bs-toggle="modal"
-        data-bs-target="#videoModal"
-        style="cursor: pointer"
       >
-        <div class="col-12">
+        <div id="banner-image-container" class="w-100" style="cursor: pointer">
           <img
             src="./images/landing.png"
             alt="Banner"
-            class="banner-image img-fluid"
+            class="banner-image img-fluid w-100"
           />
         </div>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="videoModal"
-          tabindex="-1"
-          aria-labelledby="videoModalLabel"
-        >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="videoModalLabel">
-                  Гледај Видео
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <div class="ratio ratio-16x9">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/6owNUyDlHVg?si=Q1PY7JM_xrgBd6Yb"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        <div id="video-container" class="ratio ratio-16x9 w-100 d-none">
+          <iframe
+            src="https://www.youtube.com/embed/6owNUyDlHVg?si=Q1PY7JM_xrgBd6Yb&autoplay=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
-
       <!--- cards section --->
       <div class="container my-5">
         <h1 class="text-center text-white my-4 fw-bold heading">
@@ -456,6 +425,7 @@
                   type="text"
                   name="discussion-content"
                   id="discussion-content"
+                  class="discussion-content"
                   placeholder="Сподели искуство..."
                   required
                 />
@@ -925,106 +895,122 @@
         </div>
       </div>
     </div>
+    <!-- 404 PAGE -->
+    <section id="not-found" class="hidden text-center p-5">
+      <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module"
+      ></script>
+      <dotlottie-player
+        src="https://lottie.host/32f881a3-1699-42fd-a647-ba343e196a4b/ggMmJUOHlK.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        class="dotlottie-player d-block m-auto"
+        loop
+        autoplay
+      ></dotlottie-player>
+      <p class="fs-4 mt-3">Не можевме да ја најдеме страната што ја барате.</p>
+      <a href="#safeblink" class="btn btn-1 mt-3">Назад на почетна</a>
+    </section>
     <!---- FOOTER ---->
     <footer class="footer text-white py-5">
-      <div class="container d-flex flex-column">
-        <div class="row align-items-stretch">
-          <!---Left column --->
-          <div class="col-12 col-md-4 mb-4 mb-md-0 d-flex px-2">
-            <div class="d-flex flex-column justify-content-between">
-              <img
-                src="./images/white logo.png"
-                alt="Logo"
-                style="width: 70px"
-                class="mb-2"
-              />
-              <p>International Foundation for Electoral Systems (IFES)</p>
-              <div class="d-flex flex-wrap align-items-center">
-                <span class="me-3"
-                  ><i class="fa fa-phone me-2"></i> +389-2-312-2288</span
-                >
-                <span
-                  ><i class="fa fa-envelope me-2"></i> ifes.nmk@ifes.org</span
-                >
-              </div>
+      <div class="container footer-container">
+        <div class="row gy-4">
+          <!-- Left column -->
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <a href="#safeblink">
+                <img
+                  src="./images/white logo.png"
+                  alt="footer-logo"
+                  style="width: 70px"
+                />
+              </a>
             </div>
-          </div>
-          <!---Middle column --->
-          <div
-            class="col-12 col-md-4 mb-4 mb-md-0 d-flex px-2 justify-content-md-center"
-          >
-            <div
-              class="d-flex flex-column justify-content-between align-items-start h-100"
-            >
-              <div>
-                <p class="mb-3">
-                  <a href="#information" class="text-white text-decoration-none"
-                    >Информирај се</a
-                  >
-                </p>
-                <p class="mb-3">
-                  <a href="#discussion" class="text-white text-decoration-none"
-                    >Дискусии</a
-                  >
-                </p>
-                <p class="mb-3">
-                  <a href="#contact" class="text-white text-decoration-none"
-                    >Контакт</a
-                  >
-                </p>
-                <p>
-                  <a href="#login" class="text-white text-decoration-none"
-                    >Најави се</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-          <!---Right column --->
-          <div class="col-12 col-md-4 d-flex px-2">
-            <div class="d-flex flex-column justify-content-between text-md-end">
-              <div class="mb-2">
-                <span class="me-2">MK</span> | <span class="ms-2">AL</span>
-              </div>
-              <div
-                class="d-flex justify-content-center align-items-center justify-content-md-end mb-2 gap-5 gap-md-3"
-              >
-                <a href="#" class="text-white"
-                  ><i class="fab fa-facebook fa-lg"></i
-                ></a>
-                <a href="#" class="text-white"
-                  ><i class="fab fa-instagram fa-lg"></i
-                ></a>
-                <a href="#" class="text-white"
-                  ><i class="fab fa-youtube fa-lg"></i
-                ></a>
-                <a href="#" class="text-white"
-                  ><i class="fab fa-tiktok fa-lg"></i
-                ></a>
-              </div>
 
-              <p class="mb-0 text-center text-md-end">
-                &copy; All rights reserved. <span> | </span> safeblink.mk
-              </p>
+            <p>International Foundation for Electoral Systems (IFES)</p>
+            <div class="contact-info d-flex flex-column gap-2">
+              <div>
+                <i class="fas fa-phone me-2"></i>
+                <a
+                  href="tel:+38923122288"
+                  class="text-white text-decoration-none"
+                  >+389-2-312-2288</a
+                >
+              </div>
+              <div>
+                <i class="fas fa-envelope me-2"></i>
+                <a
+                  href="mailto:ifes.nmk@ifes.org"
+                  class="text-white text-decoration-none"
+                  >ifes.nmk@ifes.org</a
+                >
+              </div>
             </div>
+          </div>
+
+          <!-- Middle column -->
+          <div class="col-12 col-md-4">
+            <ul
+              class="list-unstyled d-flex flex-column gap-2 justify-content-between h-100"
+            >
+              <li>
+                <a href="#information" class="text-white text-decoration-none"
+                  >Информирај Се</a
+                >
+              </li>
+              <li>
+                <a href="#discussion" class="text-white text-decoration-none"
+                  >Дискусии</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="text-white text-decoration-none"
+                  >Контакт - корисни линкови</a
+                >
+              </li>
+              <li>
+                <a href="#login" class="text-white text-decoration-none"
+                  >Најави Се</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right column -->
+          <div
+            class="social-links col-12 col-md-4 text-center text-md-end d-flex flex-column justify-content-between"
+          >
+            <div class="mb-3">
+              <span class="me-2">MK</span> | <span class="ms-2">AL</span>
+            </div>
+            <div
+              class="d-flex justify-content-center justify-content-md-end gap-4 mb-3"
+            >
+              <a href="#" class="text-white"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-youtube fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-tiktok fa-lg"></i
+              ></a>
+            </div>
+            <p class="mb-0">
+              &copy; All Rights Reserved. |
+              <a href="#safeblink" class="text-white text-decoration-none"
+                >safeblink.mk</a
+              >
+            </p>
           </div>
         </div>
       </div>
     </footer>
-    <!-- 404 PAGE -->
-    <section id="not-found" class="d-none text-center p-5">
-      <lottie-player
-        src="https://assets2.lottiefiles.com/packages/lf20_qwq1zsvj.json"
-        background="transparent"
-        speed="1"
-        style="width: 300px; height: 300px; margin: 0 auto"
-        loop
-        autoplay
-      ></lottie-player>
-      <h2>404 - Страницата не постои</h2>
-      <p>Не можевме да ја најдеме страната што ја бараш.</p>
-      <a href="#safeblink" class="btn btn-primary mt-3">Назад на почетна</a>
-    </section>
 
     <!--Latest jqery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -1032,8 +1018,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Bootstrap popper.js for the modal iframe-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Lottie script --->
-     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <script src="./index.js" type="module"></script>
     <script src="./sessionHelper.js" type="module"></script>

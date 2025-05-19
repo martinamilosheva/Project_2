@@ -55,7 +55,7 @@ const createDiscussionCard = ({
         <p><i>${publishDate}</i></p>
       </div>
       <div class="input-box w-100">
-        <input type="text" id="discussion-content" placeholder="Напиши коментар..." />
+        <input type="text" class="discussion-content" placeholder="Напиши коментар..." />
         <button type="submit" id="send-discussion-btn">Испрати</button>
       </div>
       <div class="action-box d-flex gap-3 mt-3">
