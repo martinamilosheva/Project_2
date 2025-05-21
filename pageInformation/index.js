@@ -25,13 +25,27 @@ let activeFilters = [
 let currentVideoUrl = "";
 
 // Convert regular URL to YouTube embed URL
-function convertToEmbedUrl(url) {
+const convertToEmbedUrl = (url) => {
   const match = url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/);
   return match ? `https://www.youtube.com/embed/${match[1]}` : url;
-}
+};
 
-// Submit comment
-function submitComment() {
+const setUserInfoInModal = () => {
+  const user = getAuthenticatedUser();
+  const userImg = document.getElementById("user-image");
+  const userName = document.getElementById("user-name");
+
+  if (user) {
+    userImg.src = user.image;
+    userName.textContent = `${user.firstName} ${user.lastName}`;
+  } else {
+    userImg.src = "images/user-icon.png";
+    userName.textContent = "Најави се за да оставиш коментар...";
+  }
+};
+
+// COMMENTS
+const submitComment = () => {
   const commentText = document.getElementById("modalComment").value.trim();
   if (!commentText) return;
 
@@ -56,24 +70,25 @@ function submitComment() {
   `;
   commentList.prepend(newComment);
   document.getElementById("modalComment").value = "";
-}
+};
 
-// Render cards
+// RENDER CARDS LOGIC
 export const renderCards = () => {
   const cardsContainer = document.querySelector("#cards-container");
   cardsContainer.innerHTML = "";
 
   if (isUserAuthenticated()) {
     const savedFilters = getLearnPageFilters();
-    if (savedFilters) activeFilters = savedFilters;
+    if (savedFilters?.length) activeFilters = savedFilters;
   }
 
   const filteredCards = cardsData.filter((card) =>
     activeFilters.includes(card.category)
   );
 
-  const renderedCards = filteredCards.map(
-    (card, index) => `
+  cardsContainer.innerHTML = filteredCards
+    .map(
+      (card, index) => `
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <div class="card custom-card" data-index="${index}" data-category="${card.category}">
         <div class="card-img" style="background-image: url('${card.image}');">
@@ -86,15 +101,13 @@ export const renderCards = () => {
       </div>
     </div>
   `
-  );
+    )
+    .join("");
 
-  cardsContainer.innerHTML = renderedCards.join("");
-
-  document.querySelectorAll(".custom-card").forEach((cardElement) => {
-    cardElement.addEventListener("click", () => {
-      const index = parseInt(cardElement.getAttribute("data-index"));
+  document.querySelectorAll(".custom-card").forEach((cardEl) => {
+    cardEl.addEventListener("click", () => {
+      const index = parseInt(cardEl.getAttribute("data-index"));
       const card = cardsData[index];
-
       const modal = new bootstrap.Modal(document.getElementById("cardModal"));
 
       document.getElementById("modalTitle").textContent = card.title;
@@ -105,31 +118,20 @@ export const renderCards = () => {
 
       currentVideoUrl = card.videoUrl || "";
 
-      const modalVideoWrapper = document.getElementById("modalVideoWrapper");
       const modalVideo = document.getElementById("modal-video");
-      modalVideoWrapper.classList.add("d-none");
+      const videoWrapper = document.getElementById("modalVideoWrapper");
       modalVideo.src = "";
+      videoWrapper.classList.add("d-none");
 
-      if (isUserAuthenticated()) {
-        const user = getAuthenticatedUser();
-        document.getElementById("user-image").src = user.image;
-        document.getElementById(
-          "user-name"
-        ).textContent = `${user.firstName} ${user.lastName}`;
-      } else {
-        document.getElementById("user-image").src = "images/user-icon.png";
-        document.getElementById("user-name").textContent =
-          "Најави се за да оставиш коментар...";
-      }
-
+      setUserInfoInModal();
       modal.show();
     });
   });
 };
 
-// Set filters
+// FILTER FUNCTIONALITY
 export const setFiltersFunctionality = () => {
-  const filterButtons = [
+  const filters = [
     { id: "#most-watched-filter", category: MOST_WATCHED_CATEGORY },
     { id: "#actual-category-filter", category: ACTUAL_CATEGORY },
     { id: "#lorem-filter", category: LOREM_CATEGORY },
@@ -137,22 +139,23 @@ export const setFiltersFunctionality = () => {
     { id: "#privacy-filter", category: PRIVACY },
   ];
 
-  filterButtons.forEach(({ id, category }) => {
+  filters.forEach(({ id, category }) => {
     const button = document.querySelector(id);
+    if (!button) return;
 
     button.classList.toggle(
       "inactive-filter",
       !activeFilters.includes(category)
     );
 
-    button.addEventListener("click", function () {
-      if (activeFilters.includes(category)) {
-        activeFilters = activeFilters.filter((f) => f !== category);
-        this.classList.add("inactive-filter");
-      } else {
-        activeFilters.push(category);
-        this.classList.remove("inactive-filter");
-      }
+    button.addEventListener("click", () => {
+      const isActive = activeFilters.includes(category);
+
+      activeFilters = isActive
+        ? activeFilters.filter((f) => f !== category)
+        : [...activeFilters, category];
+
+      button.classList.toggle("inactive-filter", isActive);
 
       if (isUserAuthenticated()) {
         localStorage.setItem(
@@ -166,44 +169,42 @@ export const setFiltersFunctionality = () => {
   });
 };
 
-// Modal events
+// VIDEOS AND MODAL EVENTS
 const playBtn = document.getElementById("play-video-btn");
 const modalVideo = document.getElementById("modal-video");
 const modalVideoWrapper = document.getElementById("modalVideoWrapper");
 
-playBtn.addEventListener("click", () => {
-  if (!currentVideoUrl) {
-    alert("No video linked to this card.");
-    return;
-  }
+playBtn?.addEventListener("click", () => {
+  if (!currentVideoUrl) return alert("No video linked to this card.");
   const embedUrl = convertToEmbedUrl(currentVideoUrl);
   modalVideo.src = `${embedUrl}?autoplay=1&enablejsapi=1&mute=1`;
   modalVideoWrapper.classList.remove("d-none");
   modalVideoWrapper.scrollIntoView({ behavior: "smooth" });
 });
 
-document.getElementById("cardModal").addEventListener("hidden.bs.modal", () => {
-  modalVideo.src = "";
-  modalVideoWrapper.classList.add("d-none");
-});
+document
+  .getElementById("cardModal")
+  ?.addEventListener("hidden.bs.modal", () => {
+    modalVideo.src = "";
+    modalVideoWrapper.classList.add("d-none");
+  });
 
-// Comment interaction
-const commentSection = document.getElementById("submit-comment");
-commentSection.addEventListener("click", () => {
+
+document.getElementById("submit-comment")?.addEventListener("click", () => {
   if (!isUserAuthenticated()) {
     bootstrap.Modal.getInstance(document.getElementById("cardModal"))?.hide();
     window.location.href = "#login";
   }
 });
 
-document.getElementById("modalComment").addEventListener("keydown", (e) => {
+document.getElementById("modalComment")?.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     isUserAuthenticated() ? submitComment() : (window.location.href = "#login");
   }
 });
 
-// Carousel arrows
+// CAROUSEL CONTROLS
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".carousel-wrapper .btn-custom");
   const dots = document.querySelectorAll(".carousel-pagination .circle");
@@ -213,22 +214,21 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   const updateCarousel = () => {
-    buttons.forEach((btn, idx) => {
-      btn.classList.toggle("active", idx === currentIndex);
-      btn.classList.toggle("inactive", idx !== currentIndex);
+    buttons.forEach((btn, i) => {
+      btn.classList.toggle("active", i === currentIndex);
+      btn.classList.toggle("inactive", i !== currentIndex);
     });
-
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle("active", idx === currentIndex);
-    });
+    dots.forEach((dot, i) =>
+      dot.classList.toggle("active", i === currentIndex)
+    );
   };
 
-  buttons.forEach((btn, index) => {
+  buttons.forEach((btn, i) =>
     btn.addEventListener("click", () => {
-      currentIndex = index;
+      currentIndex = i;
       updateCarousel();
-    });
-  });
+    })
+  );
 
   leftArrow?.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + buttons.length) % buttons.length;

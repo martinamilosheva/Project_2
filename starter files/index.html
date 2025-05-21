@@ -21,6 +21,9 @@
 
     <!---- Local CSS ---->
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="../pageInformation/information.css" />
+    <link rel="stylesheet" type="text/css" href="../pageDiscussions/discussions.css" />
+    <link rel="stylesheet" type="text/css" href="../pageProfile/profile.css" />
 
     <!--- Font Awesome 6 cdn --->
     <link
@@ -100,7 +103,7 @@
           <iframe
             src="https://www.youtube.com/embed/6owNUyDlHVg?si=Q1PY7JM_xrgBd6Yb&autoplay=1"
             title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
@@ -731,28 +734,28 @@
           class="cards-container d-flex gap-1 justify-content-between align-items-stretch flex-wrap mb-4 mt-4"
         >
           <div
-            class="user-card d-flex flex-column justify-content-center align-items-center"
+            class="user-card d-flex flex-column justify-content-between align-items-center"
           >
             <img src="./images/fist.png" />
             <p>Се придружи!</p>
           </div>
-          <div class="user-card">
+          <div class="user-card d-flex flex-column justify-content-between align-items-center">
             <img src="./images/security cam.png" />
             <p>Изгледани 10 видеа</p>
           </div>
-          <div class="user-card">
+          <div class="user-card d-flex flex-column justify-content-between align-items-center">
             <img src="./images/eye.png" />
             <p>Изгледани 20 видеа</p>
           </div>
-          <div class="user-card">
+          <div class="user-card d-flex flex-column justify-content-between align-items-center">
             <img src="./images/shield.png" />
             <p>Изгледани 50 видеа</p>
           </div>
-          <div class="user-card">
+          <div class="user-card d-flex flex-column justify-content-between align-items-center">
             <img src="./images/sword.png" />
             <p>Активност во дискусија</p>
           </div>
-          <div class="user-card">
+          <div class="user-card d-flex flex-column justify-content-between align-items-center">
             <img src="./images/trophy.png" />
             <p>Прочитани 20 статии</p>
           </div>
@@ -763,10 +766,11 @@
     <!---- LOGIN PAGE ---->
     <section id="login" class="py-5">
       <div class="container p-0">
+        <h2 class="text-left text-white py-4 fw-bold heading">
+          Придружи ни се
+        </h2>
         <div class="row align-items-center">
-          <h2 class="text-left text-white py-4 fw-bold heading">
-            Придружи ни се
-          </h2>
+
           <div class="col-md-6 mb-4">
             <div class="mb-3">
               <a
@@ -788,11 +792,13 @@
                 <i class="fab fa-tiktok me-2"></i> Продолжи со TikTok
               </a>
             </div>
-            <div class="d-flex align-items-center mb-3 w-75">
+
+            <div class="horizontal-line d-flex align-items-center mb-3 w-75">
               <hr class="flex-grow-1" />
               <span class="mx-2 text-white fw-bold">или</span>
               <hr class="flex-grow-1" />
             </div>
+
             <form id="login-form">
               <div class="d-flex flex-column w-75 mb-3">
                 <label for="username" class="form-label text-white fw-bold"
@@ -967,7 +973,7 @@
               </li>
               <li>
                 <a href="#contact" class="text-white text-decoration-none"
-                  >Контакт - корисни линкови</a
+                  >Контакт</a
                 >
               </li>
               <li>
@@ -982,22 +988,22 @@
           <div
             class="social-links col-12 col-md-4 text-center text-md-end d-flex flex-column justify-content-between"
           >
-            <div class="mb-3">
+            <div class="mb-3 text-left">
               <span class="me-2">MK</span> | <span class="ms-2">AL</span>
             </div>
             <div
               class="d-flex justify-content-center justify-content-md-end gap-4 mb-3"
             >
-              <a href="#" class="text-white"
+              <a href="https://www.facebook.com/" class="text-white"
                 ><i class="fab fa-facebook fa-lg"></i
               ></a>
-              <a href="#" class="text-white"
+              <a href="https://www.instagram.com/" class="text-white"
                 ><i class="fab fa-instagram fa-lg"></i
               ></a>
-              <a href="#" class="text-white"
+              <a href="https://www.youtube.com/" class="text-white"
                 ><i class="fab fa-youtube fa-lg"></i
               ></a>
-              <a href="#" class="text-white"
+              <a href="https://www.tiktok.com/" class="text-white"
                 ><i class="fab fa-tiktok fa-lg"></i
               ></a>
             </div>
@@ -1020,11 +1026,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="./index.js" type="module"></script>
-    <script src="./sessionHelper.js" type="module"></script>
-    <script src="../learn-page/cardsData.js" type="module"></script>
-    <script src="../learn-page/index.js" type="module"></script>
-    <script src="../discussions-page/index.js" type="module"></script>
-    <script src="../discussions-page/discussionsData.js" type="module"></script>
-    <script src="../profile-page/index.js" type="module"></script>
   </body>
 </html>

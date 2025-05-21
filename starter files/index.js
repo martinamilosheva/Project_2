@@ -4,9 +4,9 @@ import {
   SESSION_KEYS,
 } from "../starter files/sessionHelper.js";
 
-import { populateUserDetailFieldsAndSetBehavior } from "../profile-page/index.js";
-import { renderCards, setFiltersFunctionality } from "../learn-page/index.js";
-import { renderDiscussionsAndDefineBehavior } from "../discussions-page/index.js";
+import { populateUserDetailFieldsAndSetBehavior } from "../pageProfile/index.js";
+import { renderCards, setFiltersFunctionality } from "../pageInformation/index.js";
+import { renderDiscussionsAndDefineBehavior } from "../pageDiscussions/index.js";
 
 const SUPPORTED_ROUTES_MAP = {
   safeblink: "safeblink",
@@ -62,7 +62,7 @@ const handleHashRouteChange = () => {
       console.warn("404: Route not found.");
       break;
     default:
-     break;
+      break;
   }
   window.scrollTo(0, 0);
 };
@@ -89,9 +89,6 @@ const updateUserIcon = () => {
     });
   }
 };
-
-
-
 
 const resetUserIcon = () => {
   const userIcon = document.getElementById("user-icon");

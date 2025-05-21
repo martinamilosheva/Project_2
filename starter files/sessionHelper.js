@@ -4,13 +4,10 @@ import {
   INTERNET_VIDEOS,
   ACTUAL_CATEGORY,
   PRIVACY,
-} from "../learn-page/cardsData.js";
+} from "../pageInformation/cardsData.js";
 
 export const SESSION_KEYS = {
   AUTHENTICATED_USER: "AUTHENTICATED_USER",
-  "nCZsT1@example.com-active-filters": "nCZsT1@example.com-active-filters",
-  "nCZsT2@example.com-active-filters": "nCZsT2@example.com-active-filters",
-  "nCZsT3@example.com-active-filters": "nCZsT3@example.com-active-filters",
   NEW_DISCUSSION: "NEW_DISCUSSION",
 };
 
@@ -30,7 +27,7 @@ const USER_INFO_MAP = {
     password: "Pass456",
     birthYear: 1994,
     email: "user456@gmail.com",
-    image: "./images/user4.png",
+    image: "./images/profile2.png",
     firstName: "Jessica",
     lastName: "Oven",
     gender: "женско",
@@ -40,13 +37,14 @@ const USER_INFO_MAP = {
     password: "Pass789",
     birthYear: "2002",
     email: "user789@outlook.com",
-    image: "./images/user2.png",
+    image: "./images/profile3.png",
     firstName: "Mark",
     lastName: "Adams",
     gender: "машко"
   },
 };
 
+//LOGIN PAGE AUTHENTICATION
 export const isUserAuthenticated = () => {
   return Boolean(localStorage.getItem(SESSION_KEYS.AUTHENTICATED_USER));
 };
@@ -110,6 +108,7 @@ export const setAuthenticatedUser = (username) => {
   }
 };
 
+//INFORMATION PAGE ACTIVE FILTERS
 export const getAuthenticatedUserActiveFiltersKey = () => {
   const authenticatedUser = getAuthenticatedUser();
   if (!authenticatedUser) return null;
@@ -125,6 +124,8 @@ export const getLearnPageFilters = () => {
   return stringArray ? JSON.parse(stringArray) : null;
 };
 
+
+//DISCUSSIONS PAGE 
 export const addNewDiscussion = (newDiscussion) => {
   const existingDiscussions =
     localStorage.getItem(SESSION_KEYS.NEW_DISCUSSION) || "[]";

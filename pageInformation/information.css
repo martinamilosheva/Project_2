@@ -1,0 +1,192 @@
+/* --- INFORMATION PAGE CSS ---*/
+.filter-btn {
+  margin: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+
+.filter-btn.active {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(66, 53, 107, 1);
+  border: 1px solid white;
+}
+
+.filter-btn.inactive-filter {
+  color: rgba(66, 53, 107, 0.4);
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-info {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
+.modal-title,
+.card-info-title {
+  color: rgba(66, 53, 107, 1);
+}
+
+.comment {
+  border: 1px solid rgba(21, 35, 71, 0.5);
+  border-radius: 10px;
+}
+
+.modal-image-container {
+  position: absolute;
+  z-index: 1000;
+}
+
+#comments-scroll-wrapper {
+  scrollbar-width: thin;
+  max-height: 300px;
+  scrollbar-color: #ccc transparent;
+}
+#comments-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+#comments-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+#filters button {
+  min-width: 120px;
+}
+
+#modalImage {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.custom-card-body {
+  height: 150px;
+}
+
+.card-text {
+  overflow: hidden;
+}
+
+.btn-custom {
+  background: none;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-custom.active {
+  color: rgba(66, 53, 107, 1);
+}
+
+.btn-custom.inactive {
+  color: rgba(66, 53, 107, 0.3);
+}
+
+.carousel-container {
+  text-align: center;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.carousel-wrapper {
+  display: flex;
+}
+
+/* Arrows */
+#arrow-left,
+#arrow-right {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(66, 53, 107, 1);
+}
+
+/* Pagination Dots */
+.carousel-pagination {
+  margin-block: 15px;
+}
+
+.circle {
+  color: #ccc;
+  margin: 0 5px;
+  font-size: 0.6rem;
+}
+
+.circle.active i {
+  color: rgba(66, 53, 107, 1);
+}
+
+/* --------- RESPONSIVE STYLES INFORMATION PAGE ----------- */
+@media (max-width: 767px) {
+  .carousel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-wrapper .btn-custom {
+    display: none;
+  }
+
+  .carousel-wrapper .btn-custom.active {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #arrow-left,
+  #arrow-right,
+  .carousel-pagination {
+    display: inline-block;
+  }
+
+  .carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #arrow-left,
+  #arrow-right,
+  .carousel-pagination {
+    display: none;
+  }
+
+  #cards-container {
+    padding: 15px;
+  }
+
+  .btn-custom {
+    display: inline-block !important;
+  }
+}
